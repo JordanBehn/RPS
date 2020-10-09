@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        //initializing variables to keep track of record
+        var wins = 0;
+        var ties = 0;
+        var losses = 0;
+        //create array of options
+        var rps = ["rock", "paper", "scissors"]
+
+        for (i = 0; i < 10; i++) //run game 10 times
+        {
+            var compchoice = Math.floor(3 * Math.random()); //random number for computer choice
+            var playerchoice = prompt("rock, paper, or scissors?").toLowerCase(); //asks for user to choose
+            var numchoice = rps.indexOf(playerchoice); //finds index of player choice
+            if (numchoice == -1) {
+                alert("Your answer has to be one of the three! We gotta count this one as a loss :[ "); //counts as a loss if you give invalid choice
+                losses++;
+                continue
+            }
+            alert("The computer threw..." + rps[compchoice] + "!"); //announce what computer chose
+            var results = numchoice - compchoice; //makes variable relating your throw to computer's throw
+            if (results == 0) //if you tie...
+            {
+                alert("How exciting! You tied!");
+                ties++;
+                continue
+            }
+            if (results == 1 || results == -2) //if you win (a little math to represent the 3 win cons)
+            {
+                alert("Got em! You won!");
+                wins++;
+                continue
+            }
+            //if you didn't win or tie, you lost
+            alert("Ah, you lost. We'll get 'em next time");
+            losses++;
+        }
+        alert("You won " + wins + " times! Thanks for playing!") //alert at the end to show the number of wins
+            //
+            //some console logs to keep track of things
+        console.log(wins);
+        console.log(ties);
+        console.log(losses);
+        console.log(i);
+        console.log(rps);
+        console.log(compchoice);
+        console.log(playerchoice);
+        console.log(numchoice);
+    </script>
+</body>
+
+</html>
